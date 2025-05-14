@@ -19,5 +19,6 @@ mkdir build
 cd build
 cmake .. -G "Visual Studio 17 2022" -A Win32
 ```
+Run the script from the ``JsonCPP`` folder within the root folder
 
-Havok files need to be copied from the folder specified above
+Havok files need to be copied from the folder specified above into the ``Havok`` folder in the root folder
