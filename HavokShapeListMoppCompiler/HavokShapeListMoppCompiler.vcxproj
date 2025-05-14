@@ -22,7 +22,7 @@
     <ProjectGuid>{A1CFAC3B-A332-4AE9-9639-2FC9F4E86E2C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>HavokShapeListMoppCompiler</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -71,8 +71,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\havok_20090216\Source;C:\Gits\jsoncpp\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\havok_20090216\Lib\win32_net_9-0\debug_multithreaded;C:\Gits\jsoncpp\bin\src\lib_json\Debug\;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\Havok\Source;..\JsonCPP\jsoncpp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\Havok\Lib\win32_net_9-0\debug_multithreaded;..\JsonCPP\jsoncpp\build\lib\Debug\;$(LibraryPath)</LibraryPath>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetName>JsonMopp</TargetName>
   </PropertyGroup>
@@ -96,7 +96,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>hkaAnimation.lib;hkaInternal.lib;hkaRagdoll.lib;hkBase.lib;hkCompat.lib;hkgBridge.lib;hkgCommon.lib;hkgDx10.lib;hkgDx9.lib;hkgDx9s.lib;hkGeometryUtilities.lib;hkgOgl.lib;hkgOgls.lib;hkInternal.lib;hkpCollide.lib;hkpConstraintSolver.lib;hkpDynamics.lib;hkpInternal.lib;hkpUtilities.lib;hkpVehicle.lib;hkSceneData.lib;hksCommon.lib;hkSerialize.lib;hksXAudio2.lib;hkVisualize.lib;VdbClient.lib;jsoncpp.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>hkaAnimation.lib;hkaInternal.lib;hkaRagdoll.lib;hkBase.lib;hkCompat.lib;hkgBridge.lib;hkgCommon.lib;hkgDx10.lib;hkgDx9.lib;hkgDx9s.lib;hkGeometryUtilities.lib;hkgOgl.lib;hkgOgls.lib;hkInternal.lib;hkpCollide.lib;hkpConstraintSolver.lib;hkpDynamics.lib;hkpInternal.lib;hkpUtilities.lib;hkpVehicle.lib;hkSceneData.lib;hksCommon.lib;hkSerialize.lib;hksXAudio2.lib;hkVisualize.lib;jsoncpp.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

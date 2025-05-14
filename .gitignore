@@ -1,5 +1,7 @@
-Debug
-HavokShapeListMoppCompiler\Debug
-JsonToMoppCLR\Debug
 .vs
+Debug
+Havok
+HavokShapeListMoppCompiler\Debug
+JsonCPP
+JsonToMoppCLR\Debug
 HavokShapeListMoppCompiler.sdf
