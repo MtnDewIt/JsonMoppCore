@@ -11,17 +11,11 @@
 using namespace System;
 using namespace System::IO;
 
-using namespace System;
-
-
-using namespace System;
-
-namespace JsonMoppNet {
-
+namespace JsonMoppNet 
+{
 	public ref class JsonToMopp
 	{
 	public:
-
 		MemoryStream^ CreateMopp(String^ json);
 
 	};
