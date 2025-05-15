@@ -15,9 +15,9 @@
 
 
 
-CompoundMoppBuilder::CompoundMoppBuilder()
-	: m_moppCode(nullptr)
-	, m_shapes()
+CompoundMoppBuilder::CompoundMoppBuilder() 
+	: m_shapes()
+	, m_moppCode(nullptr)
 {
 }
 
