@@ -1,5 +1,8 @@
 .vs
 Debug
+Release
+x64
+x86
 HavokShapeListMoppCompiler\Debug
 JsonCPP
 JsonToMoppCLR\Debug

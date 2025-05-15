@@ -17,6 +17,5 @@ namespace JsonMoppNet
 	{
 	public:
 		MemoryStream^ CreateMopp(String^ json);
-
 	};
 }

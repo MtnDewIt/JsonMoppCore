@@ -2,9 +2,7 @@
 
 #define HAVOKSHAPELISTMOPPCOMPILER_H
 
-
 class hkThreadMemory;
-
 
 #include <vector>
 
@@ -23,17 +21,5 @@ private:
 	hkThreadMemory * m_hkThreadMemory;
 	const size_t havokStackSize;
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif
