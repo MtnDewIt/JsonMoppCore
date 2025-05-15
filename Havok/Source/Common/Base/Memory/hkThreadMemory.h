@@ -20,9 +20,9 @@ class hkMemory;
 extern void* (HK_CALL *hkSystemMalloc)(int size, int align);
 extern void (HK_CALL *hkSystemFree) (void* p);
 #define HK_DECLARE_SYSTEM_ALLOCATOR() \
-	HK_FORCE_INLINE void* HK_CALL operator new(hk_size_t nbytes)	{ return hkSystemMalloc(int(hkUlong(nbytes)),16); }	\
+	HK_FORCE_INLINE void* HK_CALL operator new(size_t nbytes)	{ return hkSystemMalloc(int(hkUlong(nbytes)),16); }	\
 	HK_FORCE_INLINE void  HK_CALL operator delete(void* p)			{ hkSystemFree(p); }	\
-	HK_FORCE_INLINE void* HK_CALL operator new(hk_size_t, void* p)	{ return p; }	\
+	HK_FORCE_INLINE void* HK_CALL operator new(size_t, void* p)	{ return p; }	\
 	HK_FORCE_INLINE void  HK_CALL operator delete(void*, void*)		{ }	\
 	class MustEndWithSemiColon
 #	define HK_VIRTUAL virtual
@@ -195,7 +195,7 @@ class hkThreadMemory
 			char* m_base;
 			char* m_end;
 
-			int getFreeBytes() { return int(m_end - m_current)-16; }
+			int getFreeBytes() const { return int(m_end - m_current)-16; }
 		};
 
 		HK_FORCE_INLINE Stack& HK_CALL getStack();
@@ -331,23 +331,23 @@ template <typename TYPE>	HK_FORCE_INLINE void HK_CALL hkDeallocateStack(TYPE* pt
 
 #else
 #define HK_DECLARE_CLASS_ALLOCATOR_UNCHECKED(TYPE) \
-	HK_FORCE_INLINE void* HK_CALL operator new(hk_size_t nbytes)	{ HK_ASSERT_OBJECT_SIZE_OK(nbytes); hkReferencedObject* b = static_cast<hkReferencedObject*>(hkThreadMemory::getInstance().allocateChunk(static_cast<int>(nbytes),TYPE)); b->m_memSizeAndFlags = static_cast<hkUint16>(nbytes); return b; }	\
+	HK_FORCE_INLINE void* HK_CALL operator new(size_t nbytes)	{ HK_ASSERT_OBJECT_SIZE_OK(nbytes); hkReferencedObject* b = static_cast<hkReferencedObject*>(hkThreadMemory::getInstance().allocateChunk(static_cast<int>(nbytes),TYPE)); b->m_memSizeAndFlags = static_cast<hkUint16>(nbytes); return b; }	\
 	HK_FORCE_INLINE void  HK_CALL operator delete(void* p)			{ hkReferencedObject* b = static_cast<hkReferencedObject*>(p); hkThreadMemory::getInstance().deallocateChunk(p, b->m_memSizeAndFlags,TYPE); }	\
-	HK_FORCE_INLINE void* HK_CALL operator new[](hk_size_t nbytes)	{ hkReferencedObject* b = static_cast<hkReferencedObject*>(hkThreadMemory::getInstance().allocateChunk(static_cast<int>(nbytes),TYPE)); b->m_memSizeAndFlags = static_cast<hkUint16>(nbytes); return b; }	\
+	HK_FORCE_INLINE void* HK_CALL operator new[](size_t nbytes)	{ hkReferencedObject* b = static_cast<hkReferencedObject*>(hkThreadMemory::getInstance().allocateChunk(static_cast<int>(nbytes),TYPE)); b->m_memSizeAndFlags = static_cast<hkUint16>(nbytes); return b; }	\
 	HK_FORCE_INLINE void  HK_CALL operator delete[](void* p)		{ hkReferencedObject* b = static_cast<hkReferencedObject*>(p); hkThreadMemory::getInstance().deallocateChunk(p, b->m_memSizeAndFlags,TYPE); }	\
-	HK_FORCE_INLINE void* HK_CALL operator new(hk_size_t, void* p)	{ return p; }	\
-	HK_FORCE_INLINE void* HK_CALL operator new[](hk_size_t, void* p){ HK_BREAKPOINT(0); return p; }	\
+	HK_FORCE_INLINE void* HK_CALL operator new(size_t, void* p)	{ return p; }	\
+	HK_FORCE_INLINE void* HK_CALL operator new[](size_t, void* p){ HK_BREAKPOINT(0); return p; }	\
 	HK_OPERATOR_DELETE \
 	HK_MUST_END_WITH_SEMICOLON
 #endif
 
 #define HK_DECLARE_NONVIRTUAL_CLASS_ALLOCATOR_BY_SIZE_UNCHECKED(TYPE,CLASS_SIZE) \
-	HK_FORCE_INLINE void* HK_CALL operator new(hk_size_t nbytes)	{ HK_ASSERT(0x6c787b7f, nbytes == CLASS_SIZE ); return hkThreadMemory::getInstance().allocateChunkConstSize(static_cast<int>(nbytes),TYPE); }	\
+	HK_FORCE_INLINE void* HK_CALL operator new(size_t nbytes)	{ HK_ASSERT(0x6c787b7f, nbytes == CLASS_SIZE ); return hkThreadMemory::getInstance().allocateChunkConstSize(static_cast<int>(nbytes),TYPE); }	\
 	HK_FORCE_INLINE void  HK_CALL operator delete(void* p)			{ if (p) hkThreadMemory::getInstance().deallocateChunkConstSize(p, CLASS_SIZE, TYPE); }								\
-	HK_FORCE_INLINE void* HK_CALL operator new[](hk_size_t nbytes)	{ return hkThreadMemory::getInstance().allocate(static_cast<int>(nbytes),TYPE); }												\
+	HK_FORCE_INLINE void* HK_CALL operator new[](size_t nbytes)	{ return hkThreadMemory::getInstance().allocate(static_cast<int>(nbytes),TYPE); }												\
 	HK_FORCE_INLINE void  HK_CALL operator delete[](void* p)		{ hkThreadMemory::getInstance().deallocate(p); } \
-	HK_FORCE_INLINE void* HK_CALL operator new(hk_size_t n, void* p){ HK_ASSERT(0x77bb90a1, n == CLASS_SIZE); return p; } \
-	HK_FORCE_INLINE void* HK_CALL operator new[](hk_size_t, void* p){ return p;	} \
+	HK_FORCE_INLINE void* HK_CALL operator new(size_t n, void* p){ HK_ASSERT(0x77bb90a1, n == CLASS_SIZE); return p; } \
+	HK_FORCE_INLINE void* HK_CALL operator new[](size_t, void* p){ return p;	} \
 	HK_OPERATOR_NONVIRTUAL_DELETE \
 	HK_MUST_END_WITH_SEMICOLON
 	

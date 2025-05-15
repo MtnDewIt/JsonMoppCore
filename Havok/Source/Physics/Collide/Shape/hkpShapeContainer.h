@@ -82,7 +82,7 @@ class hkpSingleShapeContainer : public hkpShapeContainer
 
 		HK_DECLARE_REFLECTION();
 
-		void* operator new(hk_size_t, void* p) { return p; }
+		void* operator new(size_t, void* p) { return p; }
 		void  operator delete(void* p) { }
 
 			/// Create a single shape collection.
