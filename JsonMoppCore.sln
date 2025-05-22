@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HavokShapeListMoppCompiler", "HavokShapeListMoppCompiler\HavokShapeListMoppCompiler.vcxproj", "{A1CFAC3B-A332-4AE9-9639-2FC9F4E86E2C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JsonToMoppCLR", "JsonToMoppCLR\JsonToMoppCLR.vcxproj", "{340B6BF6-7A76-4726-A248-429FB4C814C4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JsonMoppCore", "JsonMoppCore\JsonMoppCore.vcxproj", "{340B6BF6-7A76-4726-A248-429FB4C814C4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A1CFAC3B-A332-4AE9-9639-2FC9F4E86E2C} = {A1CFAC3B-A332-4AE9-9639-2FC9F4E86E2C}
 	EndProjectSection

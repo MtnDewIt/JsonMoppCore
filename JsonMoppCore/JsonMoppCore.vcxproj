@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{340B6BF6-7A76-4726-A248-429FB4C814C4}</ProjectGuid>
     <Keyword>ManagedCProj</Keyword>
-    <RootNamespace>JsonToMoppCLR</RootNamespace>
+    <RootNamespace>JsonMoppCore</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
